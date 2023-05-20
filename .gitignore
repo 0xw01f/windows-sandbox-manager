@@ -1,0 +1,69 @@
+# Dossiers
+bin/
+obj/
+Debug/
+Release/
+
+# Fichiers
+*.exe
+*.dll
+*.pdb
+*.user
+*.suo
+*.cache
+*.log
+*.vs/
+[Tt]humbs.db
+*.bak
+*.DS_Store
+
+# Fichiers de sauvegarde
+*~
+*.swp
+*.bak
+*.backup
+
+# Fichiers de configuration spécifiques à l'environnement
+app.config
+Web.config
+*.config.user
+
+# Packages NuGet
+packages/
+*.nupkg
+
+# Fichiers de données ou de ressources volumineux
+*.bak
+*.bak1
+*.bak2
+*.bak3
+*.bak4
+*.bak5
+*.bak6
+*.bak7
+*.bak8
+*.bak9
+
+# Fichiers de configuration de l'IDE (Visual Studio)
+*.userprefs
+*.sln.docstates
+
+# Fichiers de compilation
+*.cache
+*.log
+*.deps.json
+*.runtimeconfig.json
+
+# Fichiers de test
+[Tt]est[Rr]esult*
+[Bb]uild[Rr]esult*
+
+# Fichiers générés par Visual Studio
+_UpgradeReport_Files/
+UpgradeLog*.XML
+UpgradeLog*.htm
+
+# Fichiers de déploiement ClickOnce
+publish/
+*.application
+*.deploy

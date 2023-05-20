@@ -1,0 +1,214 @@
+﻿<Window x:Class="Sandbox_Activator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        Title="Sandbox Activator" Height="516" Width="418" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterOwner">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <!-- Style des boutons -->
+
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Cursor" Value="Hand" />
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.7"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Window">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <Border Background="White" BorderBrush="Gray" BorderThickness="1"
+                                CornerRadius="5" Padding="0" SnapsToDevicePixels="True">
+                            <Grid>
+                                <AdornerDecorator>
+                                    <ContentPresenter/>
+                                </AdornerDecorator>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="RoundButtonTemplate" TargetType="Button">
+            <Grid>
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8"/>
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+
+
+        <Style x:Key="RedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#DC3251"/>
+                                <Setter Property="BorderBrush" Value="#DC3251"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="GreenButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#1EA885"/>
+                                <Setter Property="BorderBrush" Value="#1EA885"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ContactButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#7C5CFF"/>
+                                <Setter Property="BorderBrush" Value="#7C5CFF"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CloseButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="100">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#DC3251"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Border CornerRadius="5" BorderBrush="Gray" BorderThickness="0.7" Padding="0" Background="#292733">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="123*"/>
+                <RowDefinition Height="229*"/>
+            </Grid.RowDefinitions>
+            <!-- Barre de titre -->
+            <Border CornerRadius="5" Background="#1C1B24" Height="40" VerticalAlignment="Top">
+                <Grid Background="#1C1B24" MouseDown="Grid_MouseDown" Margin="0,10,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="17*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="115*"/>
+                        <ColumnDefinition Width="24*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Foreground="White" VerticalAlignment="Center" Margin="10,0,38,6" MouseDown="TextBlock_MouseDown" Grid.ColumnSpan="2" FontFamily="Segoe UI Light" FontSize="14" Height="24" Grid.RowSpan="2"><Run Text="Windows "/><Run Text="Sandbox "/><Run Text="Manager"/></TextBlock>
+                    <Button Content="X" Background="Transparent" FontWeight="Bold" FontSize="19" Click="CloseButton_Click" Margin="21,-6,-11,6" Grid.Column="1" BorderThickness="0" Style="{StaticResource CloseButtonStyle}" FontFamily="Segoe UI Semibold" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                </Grid>
+            </Border>
+            <!-- Contenu de la fenêtre -->
+
+            <Grid Margin="10,50,10,10" Grid.RowSpan="2" x:Name="contentGrid">
+
+                <TextBlock HorizontalAlignment="Left" Foreground="LightGray" Margin="10,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="181" Width="376" FontSize="16"><Run Text="Une sandbox est un environnement isolé et sécurisé dans lequel vous pouvez exécuter des applications et des fichiers sans risquer d'endommager votre système d'exploitation principal. Cela vous permet d'expérimenter, de tester des logiciels potentiellement dangereux ou de naviguer sur Internet "/><Run Text="avec plus de"/><Run Text=" sécurité. "/></TextBlock>
+                <TextBlock HorizontalAlignment="Left"  Foreground="LightGray" Margin="31,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="37" Width="232" FontWeight="Bold"><Run Text="Note: "/><Run FontWeight="Normal" Text="Chacune de "/><Run FontWeight="Normal" Text="c"/><Run FontWeight="Normal" Text="es actions nécessitera le redémarrage de votre ordinateur."/></TextBlock>
+
+                <Button Content="Activer Sandbox" Click="ActivateButton_Click" Margin="31,207,31,198" Foreground="LightGray" FontSize="16" BorderBrush="#FF4A4658" Style="{StaticResource GreenButtonStyle}"/>
+                <Button Content="Désactiver Sandbox" Click="DeactivateButton_Click" Margin="31,267,31,139" Foreground="LightGray" FontSize="16" BorderBrush="#FF4A4658" Style="{StaticResource RedButtonStyle}"/>
+                <Button Content="Contact" Margin="31,398,31,23" Foreground="LightGray" FontSize="14" Click="Button_Click" BorderBrush="#FF4A4658" Style="{StaticResource ContactButtonStyle}"/>
+
+            </Grid>
+
+
+
+
+            <StackPanel Margin="0,56,0,127" Grid.RowSpan="2" x:Name="loadingSpinner" Visibility="Collapsed">
+                <Image x:Name="MyImage" Source="images/loader3.png" Margin="0,50" Height="298">
+
+                    <Image.RenderTransform>
+                        <RotateTransform CenterX="149" CenterY="149"/>
+                    </Image.RenderTransform>
+                </Image>
+
+                <Rectangle
+            x:Name="MyRectangle"
+            Width="50" 
+            Height="35"
+            Fill="Blue" Margin="173,0">
+
+                    <Rectangle.Triggers>
+                        <!-- Animates the rectangle's opacity. -->
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                            Storyboard.TargetName="MyImage"
+                            Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                            From="0" To="360" Duration="0:0:3"
+                            RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Rectangle.Triggers>
+                </Rectangle>
+            </StackPanel>
+
+
+        </Grid>
+    </Border>
+</Window>
